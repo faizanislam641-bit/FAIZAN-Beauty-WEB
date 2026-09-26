@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAIZAN Beauty Product</title>
+    <title>MOURY Beauty Product</title>
     
     <!-- ✅ ব্রাউজার ট্যাব আইকন (Favicon) -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -14,9 +14,11 @@
     <style>
         :root {
             --black: #0a0a0a;
+            --pink: #ff69b4;
             --gold: #d4af37;
-            --cream: #f5f0e6;
+            --red: #dc143c;
             --deep-purple: #3b0b3b;
+            --cream: #f5f0e6;
             --text-light: #e0e0e0;
         }
 
@@ -48,7 +50,7 @@
 
         .corner-light {
             position: fixed; width: 150px; height: 150px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 105, 180, 0.5) 0%, transparent 70%);
             z-index: 1; animation: pulse 4s infinite alternate;
         }
         .top-left { top: -50px; left: -50px; }
@@ -67,16 +69,19 @@
             z-index: 9999; transition: opacity 0.5s ease;
         }
         .login-box {
-            background: rgba(20, 20, 20, 0.9); border: 2px solid var(--gold);
+            background: rgba(20, 20, 20, 0.9); border: 2px solid var(--pink);
             border-radius: 20px; padding: 40px; width: 90%; max-width: 420px;
-            text-align: center; box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            text-align: center; box-shadow: 0 0 40px rgba(255, 105, 180, 0.4);
             animation: float 4s ease-in-out infinite;
         }
         .login-box h1 {
             font-family: 'Playfair Display', serif; color: var(--gold);
             margin-bottom: 10px; font-size: 2rem;
         }
-        .login-box h1 span { color: var(--deep-purple); }
+        .login-box h1 span { 
+            color: var(--pink); 
+            text-shadow: 0 0 10px var(--red);
+        }
         .login-box p.subtitle { color: #aaa; margin-bottom: 25px; font-size: 0.9rem; }
         .login-box input {
             width: 100%; padding: 14px; margin: 10px 0; border-radius: 10px;
@@ -84,17 +89,21 @@
             font-size: 1rem; outline: none; transition: 0.3s;
         }
         .login-box input:focus {
-            border-color: var(--gold); box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            border-color: var(--pink); box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
         }
         .login-box button {
             width: 100%; padding: 14px; margin-top: 15px; font-size: 1.1rem;
-            font-weight: 600; background: var(--gold); color: var(--black);
+            font-weight: 600; background: linear-gradient(45deg, var(--pink), var(--red)); 
+            color: white;
             border: none; border-radius: 10px; cursor: pointer; transition: 0.3s;
         }
-        .login-box button:hover { background: #b8960c; box-shadow: 0 0 20px var(--gold); }
+        .login-box button:hover { 
+            background: linear-gradient(45deg, var(--red), var(--pink));
+            box-shadow: 0 0 20px var(--pink); 
+        }
         .toggle-link { margin-top: 20px; color: #aaa; font-size: 0.9rem; }
         .toggle-link span {
-            color: var(--gold); cursor: pointer; font-weight: 600; text-decoration: underline;
+            color: var(--pink); cursor: pointer; font-weight: 600; text-decoration: underline;
         }
         #loginMessage { margin-top: 15px; font-weight: bold; min-height: 20px; }
 
@@ -103,22 +112,29 @@
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 5%; background: rgba(10, 10, 10, 0.9);
-            border-bottom: 2px solid var(--gold); position: sticky; top: 0;
+            border-bottom: 2px solid var(--pink); position: sticky; top: 0;
             z-index: 100; backdrop-filter: blur(10px); flex-wrap: wrap; gap: 10px;
         }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); }
-        .logo span { color: var(--deep-purple); text-shadow: 0 0 5px var(--deep-purple); }
+        .logo { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.8rem; 
+            color: var(--gold); 
+        }
+        .logo span { 
+            color: var(--pink); 
+            text-shadow: 0 0 8px var(--red); 
+        }
 
         .search-bar {
             display: flex; align-items: center; background: rgba(255,255,255,0.1);
-            border: 1px solid var(--gold); border-radius: 25px; padding: 5px 15px;
+            border: 1px solid var(--pink); border-radius: 25px; padding: 5px 15px;
             flex: 1; max-width: 400px;
         }
         .search-bar input {
             background: transparent; border: none; color: white; outline: none;
             width: 100%; padding: 5px;
         }
-        .search-bar i { color: var(--gold); }
+        .search-bar i { color: var(--pink); }
 
         .auth-buttons { display: flex; gap: 10px; }
         .btn-gold {
@@ -129,12 +145,16 @@
         .btn-gold:hover { background: #b8960c; box-shadow: 0 0 15px var(--gold); }
 
         .btn-purple {
-            background: var(--deep-purple); color: white; border: 1px solid var(--gold);
+            background: linear-gradient(45deg, var(--deep-purple), var(--red)); 
+            color: white; border: 1px solid var(--pink);
             padding: 10px 20px; border-radius: 25px; text-decoration: none;
             font-weight: 600; cursor: pointer; transition: 0.3s;
-            display: none; /* ডিফল্টভাবে হাইড */
+            display: none;
         }
-        .btn-purple:hover { background: #5a1a5a; box-shadow: 0 0 15px var(--deep-purple); }
+        .btn-purple:hover { 
+            background: linear-gradient(45deg, var(--red), var(--deep-purple)); 
+            box-shadow: 0 0 15px var(--pink); 
+        }
 
         .hero {
             padding: 50px 5%; display: flex; justify-content: center;
@@ -146,8 +166,8 @@
         }
         .hero-image-wrapper {
             position: relative; width: 350px; height: 450px; border-radius: 20px;
-            overflow: hidden; border: 3px solid var(--gold);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            overflow: hidden; border: 3px solid var(--pink);
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
             animation: float 4s ease-in-out infinite;
         }
         @keyframes float {
@@ -156,7 +176,7 @@
         }
         .hero-img {
             width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(30%) contrast(110%);
+            filter: grayscale(20%) contrast(110%);
         }
         .hero-image-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -168,7 +188,7 @@
             line-height: 1.2; margin-bottom: 20px;
         }
         .gradient-text {
-            background: linear-gradient(45deg, var(--gold), var(--cream), var(--deep-purple));
+            background: linear-gradient(45deg, var(--pink), var(--gold), var(--red), var(--deep-purple));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-size: 200% 200%; animation: gradientMove 3s infinite alternate;
         }
@@ -180,8 +200,8 @@
         .developer-credit { font-size: 1.2rem; font-weight: bold; color: var(--gold); }
         #developerName { animation: colorChange 2s infinite alternate; }
         @keyframes colorChange {
-            0% { color: var(--gold); }
-            100% { color: var(--deep-purple); text-shadow: 0 0 10px var(--deep-purple); }
+            0% { color: var(--pink); text-shadow: 0 0 10px var(--red); }
+            100% { color: var(--gold); text-shadow: 0 0 10px var(--deep-purple); }
         }
 
         .contact-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
@@ -198,7 +218,10 @@
         .products-section { padding: 50px 5%; position: relative; z-index: 2; }
         .products-section h2 {
             text-align: center; font-family: 'Playfair Display', serif;
-            font-size: 2.5rem; color: var(--gold); margin-bottom: 40px;
+            font-size: 2.5rem; 
+            background: linear-gradient(45deg, var(--pink), var(--gold), var(--red));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
         }
         .product-grid {
             display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -206,13 +229,13 @@
         }
         .product-card {
             background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(255, 105, 180, 0.3);
             border-radius: 15px; padding: 15px; text-align: center;
             transition: 0.3s; backdrop-filter: blur(5px);
         }
         .product-card:hover {
-            transform: translateY(-10px); border-color: var(--gold);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(-10px); border-color: var(--pink);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
         }
         .product-card img {
             width: 100%; height: 200px; object-fit: cover;
@@ -221,24 +244,33 @@
         .product-card h3 { font-size: 1rem; color: var(--cream); margin-bottom: 5px; }
         .product-card .price { color: var(--gold); font-weight: bold; font-size: 1.2rem; }
         .product-card .buy-btn {
-            margin-top: 10px; background: var(--deep-purple); color: white;
-            border: 1px solid var(--gold); padding: 8px 15px;
+            margin-top: 10px; 
+            background: linear-gradient(45deg, var(--deep-purple), var(--red));
+            color: white;
+            border: 1px solid var(--pink); padding: 8px 15px;
             border-radius: 20px; cursor: pointer; transition: 0.3s;
         }
-        .product-card .buy-btn:hover { background: var(--gold); color: black; }
+        .product-card .buy-btn:hover { 
+            background: linear-gradient(45deg, var(--pink), var(--gold)); 
+            color: black; 
+        }
 
         .admin-container { padding: 50px 5%; display: none; position: relative; z-index: 2; }
         .admin-box {
-            background: rgba(255,255,255,0.05); border: 1px solid var(--gold);
+            background: rgba(255,255,255,0.05); border: 1px solid var(--pink);
             padding: 20px; border-radius: 15px; margin-bottom: 30px;
         }
-        .admin-box h2 { color: var(--gold); margin-bottom: 20px; }
+        .admin-box h2 { 
+            color: var(--pink); 
+            margin-bottom: 20px; 
+            text-shadow: 0 0 10px var(--red);
+        }
         table { width: 100%; border-collapse: collapse; color: white; }
         th, td { padding: 12px; border-bottom: 1px solid #444; text-align: left; }
-        th { background: var(--deep-purple); color: var(--gold); }
+        th { background: var(--deep-purple); color: var(--pink); }
         .intruder-img {
             width: 100px; height: 75px; object-fit: cover;
-            border: 2px solid red; border-radius: 5px;
+            border: 2px solid var(--red); border-radius: 5px;
         }
 
         @media (max-width: 768px) {
@@ -264,7 +296,7 @@
     <!-- LOGIN OVERLAY -->
     <div id="loginOverlay">
         <div class="login-box">
-            <h1>FAIZAN <span>Beauty</span></h1>
+            <h1>MOURY <span>Beauty</span></h1>
             <p class="subtitle">Please sign in to access the store</p>
             <form id="loginForm">
                 <input type="text" id="loginName" placeholder="Full Name (only for Sign Up)" style="display: none;">
@@ -282,7 +314,7 @@
     <!-- MAIN WEBSITE -->
     <div id="mainWebsite">
         <header>
-            <div class="logo">FAIZAN <span>Beauty</span></div>
+            <div class="logo">MOURY <span>Beauty</span></div>
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search products...">
                 <i class="fas fa-search"></i>
@@ -297,13 +329,13 @@
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-image-wrapper">
-                    <img src="faizan.jpg" alt="Faizan" class="hero-img">
+                    <img src="faizan.jpg" alt="MOURY" class="hero-img">
                     <div class="hero-image-overlay"></div>
                 </div>
                 <div class="hero-text">
-                    <h1>Welcome to <br><span class="gradient-text">FAIZAN Beauty Product</span></h1>
+                    <h1>Welcome to <br><span class="gradient-text">MOURY Beauty Product</span></h1>
                     <p>Premium Cosmetics for the Modern You.</p>
-                    <p class="developer-credit">Developer by <span id="developerName">FAIZAN</span></p>
+                    <p class="developer-credit">Developer by <span id="developerName">MOURY</span></p>
                     <div class="contact-links">
                         <a href="https://www.facebook.com/Faizanislam.999" target="_blank" class="contact-btn fb"><i class="fab fa-facebook-f"></i> Facebook</a>
                         <a href="https://wa.me/8801646313289" target="_blank" class="contact-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -322,7 +354,7 @@
     <!-- ADMIN PANEL -->
     <div id="adminPanel" class="admin-container">
         <button class="btn-gold" onclick="showWebsite()" style="margin-bottom: 20px;">← Back to Website</button>
-        <h1 style="color: var(--gold); margin-bottom: 30px;">Admin Dashboard</h1>
+        <h1 style="color: var(--pink); margin-bottom: 30px; text-shadow: 0 0 15px var(--red);">Admin Dashboard</h1>
         
         <div class="admin-box">
             <h2>Registered Users (Signups)</h2>
@@ -402,7 +434,7 @@
 
             // Product Data (130+ Products)
             const categories = ['Lipstick', 'Foundation', 'Mascara', 'Eyeshadow', 'Blush', 'Perfume', 'Skincare', 'Nail Polish', 'Concealer', 'Highlighter'];
-            const brands = ['FAIZAN Glow', 'Luxury Beauty', 'Golden Rose', 'Purple Essence', 'Creamy Touch'];
+            const brands = ['MOURY Glow', 'Luxury Beauty', 'Golden Rose', 'Purple Essence', 'Creamy Touch'];
             const products = [];
 
             for (let i = 1; i <= 130; i++) {
